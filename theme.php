@@ -24,7 +24,7 @@ return [
 
     'resources' => [
         'readonly:' => '',
-        // 'blog:' => 'overrides/blog'
+        'blog:' => 'overrides/blog'
     ],
 
     /**
