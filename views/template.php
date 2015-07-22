@@ -4,10 +4,10 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <?= $view->render('head') ?>
-        <?php $view->style('readonly-style', 'readonly:assets/css/main.css') ?>
+        <?php $view->style('readonly-style', 'theme:assets/css/main.css') ?>
 
-        <!--[if lte IE 8]><?php $view->style('readonly-ie8', 'readonly:assets/css/ie8.css') ?><![endif]-->
-        <!--[if lte IE 8]><?php $view->style('html5shiv', 'readonly:assets/js/ie/html5shiv.js') ?><![endif]-->
+        <!--[if lte IE 8]><?php $view->style('readonly-ie8', 'theme:assets/css/ie8.css') ?><![endif]-->
+        <!--[if lte IE 8]><?php $view->style('html5shiv', 'theme:assets/js/ie/html5shiv.js') ?><![endif]-->
 
     </head>
     <body>
@@ -17,7 +17,7 @@
                 <header>
 
                     <?php if ($view->position()->exists('sidebar-top')) : ?>
-                        <?= $view->position('sidebar-top', 'plain') ?>
+                        <?= $view->position('sidebar-top', 'theme:views/plain.php') ?>
                     <?php else: ?>
                     <span class="image avatar"><img src="<?= $view->url('themes/readonly/images/avatar.jpg') ?>" alt="" /></span>
                     <h1 id="logo"><a href="#">Willis Corto</a></h1>
@@ -27,22 +27,18 @@
                     <?php endif; ?>
                 </header>
 
-                <?php if ($view->position()->exists('navbar') || $view->menu()->exists('main')) : ?>
-
                 <nav id="nav">
 
-                    <?php if ($view->menu()->exists('main')) : ?>
-                        <?= $view->menu('main', 'menu') ?>
+                    <?php if ($view->menu()->exists('primary')) : ?>
+                        <?= $view->menu('primary', 'theme:views/menu.php') ?>
                     <?php else: ?>
-                        <p>Assign a <strong>main</strong> menu to render a navigation here.</p>
+                        <p>Assign a <strong>primary</strong> menu to render a navigation here.</p>
                     <?php endif ?>
 
-
                 </nav>
-                <?php endif; ?>
 
                 <footer>
-                    <?php if ($view->menu()->exists('sidebar-bottom')) : ?>
+                    <?php if ($view->position()->exists('sidebar-bottom')) : ?>
                         <?= $view->position('sidebar-bottom', 'plain') ?>
                     <?php else: ?>
                     <p>Place widgets in the <strong>sidebar-bottom</strong> position to replace this content.</p>
@@ -521,14 +517,14 @@
 
             <!-- Scripts -->
             <?php $view->script('jquery') ?>
-            <?php $view->script('jquery-scrollzer', 'themes/readonly/assets/js/jquery.scrollzer.min.js', 'jquery') ?>
-            <?php $view->script('jquery-scrolly', 'themes/readonly/assets/js/jquery.scrolly.min.js', 'jquery') ?>
-            <?php $view->script('skel', 'themes/readonly/assets/js/skel.min.js') ?>
-            <?php $view->script('readonly-util', 'themes/readonly/assets/js/util.js') ?>
-            <?php $view->script('readonly-main', 'themes/readonly/assets/js/main.js') ?>
+            <?php $view->script('jquery-scrollzer', 'theme:assets/js/jquery.scrollzer.min.js', 'jquery') ?>
+            <?php $view->script('jquery-scrolly', 'theme:assets/js/jquery.scrolly.min.js', 'jquery') ?>
+            <?php $view->script('skel', 'theme:assets/js/skel.min.js') ?>
+            <?php $view->script('readonly-util', 'theme:assets/js/util.js') ?>
+            <?php $view->script('readonly-main', 'theme:assets/js/main.js') ?>
 
-            <!--[if lte IE 8]><?php $view->script('respond', 'readonly:assets/js/ie/respond.min.js') ?><![endif]-->
-            <?php $view->script('readonly-script', 'readonly:assets/js/main.js') ?>
+            <!--[if lte IE 8]><?php $view->script('respond', 'theme:assets/js/ie/respond.min.js') ?><![endif]-->
+            <?php $view->script('readonly-script', 'theme:assets/js/main.js') ?>
 
     </body>
 </html>

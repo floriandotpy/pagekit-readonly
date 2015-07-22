@@ -10,7 +10,7 @@ return [
      */
     'menus' => [
 
-        'main' => 'Main'
+        'primary' => 'Primary'
 
     ],
 
@@ -22,18 +22,13 @@ return [
 
     ],
 
-    'resources' => [
-        'readonly:' => '',
-        'blog:' => 'overrides/blog'
-    ],
-
     /**
-     * List of named views provided by this theme.
+     * Overwrite default template files with templates provided by the theme and define stream wrappers for shorter path access.
      */
-    'views' => [
+    'resources' => [
 
-        'menu' => 'readonly:views/menu.php',
-        'plain' => 'readonly:views/plain.php'
+        'theme:' => '',
+        'views:' => 'views'
 
     ]
 ];
